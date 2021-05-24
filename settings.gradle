@@ -1,0 +1,6 @@
+include ':dynamicfeature'
+include ':staticfeature'
+include ':core'
+include ':di'
+include ':app'
+rootProject.name = "Arch-Playground"

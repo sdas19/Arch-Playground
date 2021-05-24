@@ -1,0 +1,48 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        versions = [
+                'kotlin'             : '1.4.20',
+                'dagger'             : '2.29.1',
+                'playCore'           : '1.6.4',
+                'okhttp'             : '3.12.13',
+                'retrofit'           : '2.6.1'
+        ]
+        libraries = [
+                dagger                    : "com.google.dagger:dagger:${versions.dagger}",
+                daggerCompiler            : "com.google.dagger:dagger-compiler:${versions.dagger}",
+                daggerAndroid             : "com.google.dagger:dagger-android:${versions.dagger}",
+                daggerAndroidSupport      : "com.google.dagger:dagger-android-support:${versions.dagger}",
+                daggerAndroidCompiler     : "com.google.dagger:dagger-android-processor:${versions.dagger}",
+                playCore                  : "com.google.android.play:core:${versions.playCore}",
+                retrofit2                 : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                retrofit2Gson             : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+                okhttp3                   : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                okhttp3Logging            : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
+        ]
+        versions.kotlin = '1.4.20'
+        versions.kotlin = '1.4.20'
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
