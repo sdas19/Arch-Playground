@@ -4,7 +4,8 @@ buildscript {
         versions = [
                 'kotlin'             : '1.4.20',
                 'dagger'             : '2.29.1',
-                'playCore'           : '1.6.4',
+                //must use Play Core 1.6.5 or newer to use FakeSplitManager under the hood when testing with bundle tool
+                'playCore'           : '1.10.0',
                 'okhttp'             : '3.12.13',
                 'retrofit'           : '2.6.1'
         ]

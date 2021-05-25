@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                         startIntentSender(state.resolutionIntent()?.intentSender, null, 0, 0, 0)
                     }
                     SplitInstallSessionStatus.INSTALLED -> {
+                        Log.v(TAG, "Install completed multiInstall value -> $multiInstall")
                         onSuccessfulLoad(launch = !multiInstall)
                     }
 
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                         "Installing $names"
                     )
                     SplitInstallSessionStatus.FAILED -> {
-                        Log.e(TAG, "Error: ${state.errorCode()} for module ${state.moduleNames()}")
+                        Log.v(TAG, "Error: ${state.errorCode()} for module ${state.moduleNames()}")
                         dynamicModuleManager.installDeferred(listOf(moduleName))
                     }
                 }
@@ -72,6 +73,8 @@ class MainActivity : AppCompatActivity() {
 
     /** Display a loading state to the user. */
     private fun displayLoadingState(state: SplitInstallSessionState, message: String) {
+        Log.v(TAG, "displayLoadingState total bytes to download -> ${state.totalBytesToDownload()}")
+        Log.v(TAG, "displayLoadingState bytes downloaded -> ${state.bytesDownloaded()}")
         progress_bar.max = state.totalBytesToDownload().toInt()
         progress_bar.progress = state.bytesDownloaded().toInt()
 
@@ -83,6 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSuccessfulLoad(launch: Boolean = true) {
+        Log.v(TAG, "onSuccessfulLoad launch -> $launch")
         if (launch) {
             val intent = Intent().apply {
                 setClassName(

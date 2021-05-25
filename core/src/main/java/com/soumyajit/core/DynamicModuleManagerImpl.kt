@@ -25,17 +25,27 @@ class DynamicModuleManagerImpl @Inject constructor(
             .build()
         splitInstallManager.apply {
             registerListener(listener)
-            startInstall(request).addOnCompleteListener {
-                unregisterListener(listener)
-            }
+            Log.v(TAG, "Request -> $request")
+            Log.v(TAG, "Request module names -> ${request.moduleNames}")
+            startInstall(request)
+                .addOnCompleteListener {
+                    unregisterListener(listener)
+                }
+                .addOnFailureListener {
+                    Log.v(TAG, "Install failed exception message -> ${it.message}")
+                    Log.v(
+                        TAG,
+                        "Install failed exception localizedMessage -> ${it.localizedMessage}"
+                    )
+                }
         }
     }
 
     override fun installDeferred(moduleNames: List<String>) {
         splitInstallManager.deferredInstall(moduleNames).addOnSuccessListener {
-            Log.e(TAG, "Deferred installation of $moduleNames")
+            Log.v(TAG, "Deferred installation of $moduleNames")
         }.addOnFailureListener {
-            Log.e(TAG, "Failed installation of $moduleNames")
+            Log.v(TAG, "Failed installation of $moduleNames")
         }
     }
 }
