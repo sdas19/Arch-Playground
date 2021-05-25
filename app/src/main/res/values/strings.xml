@@ -3,4 +3,5 @@
     <string name="title_dynamicfeature">DynamicFeatureModule</string>
     <string name="tap_me">Open dynamic feature</string>
     <string name="tap_me_2">Open static feature</string>
+    <string name="title_dynamicfeaturemodule">Dynamic Feature Module</string>
 </resources>

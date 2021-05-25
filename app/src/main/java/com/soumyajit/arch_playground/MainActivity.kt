@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent().apply {
                 setClassName(
                     BuildConfig.APPLICATION_ID,
-                    "com.soumyajit.dynamicfeature.DynamicFeatureEntryActivity"
+                    "com.soumyajit.arch_playground.dynamicfeaturemodule.DynamicFeatureModuleEntryActivity"
                 )
             }
             startActivity(intent)

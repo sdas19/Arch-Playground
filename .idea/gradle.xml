@@ -12,9 +12,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/com.soumyajit.arch_playground.dynamicfeature" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/di" />
-            <option value="$PROJECT_DIR$/dynamicfeature" />
+            <option value="$PROJECT_DIR$/dynamicfeaturemodule" />
             <option value="$PROJECT_DIR$/staticfeature" />
           </set>
         </option>
